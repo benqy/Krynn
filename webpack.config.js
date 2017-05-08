@@ -8,6 +8,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   watch: true,
+  devServer: {
+    contentBase: [path.join(__dirname, "dist"),path.join(__dirname,"app")],
+    port: 9000
+  },
   devtool: "source-map",
   module: {
     rules: [

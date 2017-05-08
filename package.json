@@ -3,15 +3,16 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "watch": "webpack"
+    "watch": "webpack",
+    "server":"node_modules/.bin/webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^2.3.2",
     "ts-loader": "^2.0.1",
-    "typescript": "^2.1.4"
+    "typescript": "^2.1.4",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.5"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
