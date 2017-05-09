@@ -1,5 +1,5 @@
 import { Timer } from './timer'
-import { IGame } from './igame'
+import { IGame } from './game'
 
 export class System {
     timer: Timer
@@ -31,16 +31,16 @@ export class System {
         this.game = game
     }
 
-    run() {
+    update() {
         if (this.game) {
-            this.game.run()
+            this.game.update()
             this.tick++
         }
     }
 
     startLoop() {
         this.stopLoop()
-        this.intervalId = setInterval(() => this.run(), 1000 / this.fps)
+        this.intervalId = setInterval(() => this.update(), 1000 / this.fps)
         this.running = true
     }
 

@@ -1,7 +1,10 @@
-import { IGame } from './igame'
 import {krynn} from'./index'
 
-export class Game implements IGame {
+interface IGame {
+    update(): void
+}
+
+class Game implements IGame {
     constructor() {
 
     }
@@ -10,7 +13,10 @@ export class Game implements IGame {
         console.log('update entity')
     }
 
-    run() {
-        console.log('run', this,krynn.system.tick)
+    render() {
+        console.log('', this,krynn.system.tick)
     }
 }
+
+
+export {IGame,Game}

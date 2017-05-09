@@ -1,6 +1,5 @@
 import { System } from './system'
-import { Game } from './game'
-import { IGame } from './igame'
+import {IGame, Game } from './game'
 
 let krynn = {
     start(fps?: number, game?: IGame) {
