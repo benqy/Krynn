@@ -1,16 +1,19 @@
-import { System } from './system'
-import {IGame, Game } from './game'
+import SceneManager from './scenemanager'
+import { IScene, Scene } from './scene'
+import { IGameObject, GameObject } from './gameobject'
 
 let krynn = {
-    start(fps?: number, game?: IGame) {
-        krynn.system = new System(fps)
-        game && this.system.setGame(game)
-        this.system.startLoop()
-        console.log(this.system)
+    /**
+     * 启动指定的游戏
+     * @param fps 游戏帧数
+     * @param game 游戏实例
+     */
+    start(fps?: number, scene?: IScene) {
+        this.sceneManager = new SceneManager(fps)
+        scene && this.sceneManager.setGame(scene)
+        this.sceneManager.startLoop()
     },
-    system:<System>null,
-    Game: Game
+    sceneManager: <SceneManager>null
 }
 
-export { krynn }
-
+export { krynn,IScene, Scene, IGameObject, GameObject }

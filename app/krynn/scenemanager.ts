@@ -1,7 +1,7 @@
 import { Timer } from './timer'
-import { IGame } from './game'
+import { IScene } from './scene'
 
-export class System {
+export default class SceneManager {
     timer: Timer
     running = false
     /**
@@ -12,7 +12,7 @@ export class System {
     /**
      * 当前游戏实例
      */
-    game: IGame
+    scene: IScene
 
     /**
      * 当前已执行帧数(一般用于游戏内计时)
@@ -20,27 +20,27 @@ export class System {
     tick: number = 0
 
     /**
-     * 管理程序
+     * 游戏场景管理程序
      * @param fps 游戏帧数(默认60)
      */
     constructor(readonly fps: number = 60) {
         this.timer = new Timer()
     }
 
-    setGame(game: IGame) {
-        this.game = game
+    setGame(scene: IScene) {
+        this.scene = scene
     }
 
-    update() {
-        if (this.game) {
-            this.game.update()
+    frameHandler() {
+        if (this.scene) {
+            this.scene.frameHandler()
             this.tick++
         }
     }
 
     startLoop() {
         this.stopLoop()
-        this.intervalId = setInterval(() => this.update(), 1000 / this.fps)
+        this.intervalId = setInterval(() => this.frameHandler(), 1000 / this.fps)
         this.running = true
     }
 
