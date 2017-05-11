@@ -1,5 +1,5 @@
-import { Timer } from './timer'
-import { IScene } from './scene'
+import { Timer } from './Timer'
+import { IScene } from './Scene'
 
 export default class SceneManager {
     timer: Timer

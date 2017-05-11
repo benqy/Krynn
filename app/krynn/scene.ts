@@ -1,4 +1,4 @@
-import { IGameObject, GameObject } from './gameobject'
+import { IGameObject, GameObject } from './GameObject'
 import { krynn } from './index'
 
 interface IScene {
@@ -29,6 +29,7 @@ abstract class Scene implements IScene {
     }
 
     update() {
+        console.clear()
         // console.log('update entity')
         this.gameObjects.forEach(gameObject => {
             gameObject.active && gameObject.update()

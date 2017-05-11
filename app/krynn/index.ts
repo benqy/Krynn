@@ -1,6 +1,6 @@
-import SceneManager from './scenemanager'
-import { IScene, Scene } from './scene'
-import { IGameObject, GameObject } from './gameobject'
+import SceneManager from './SceneManager'
+import { IScene, Scene } from './Scene'
+import { IGameObject, GameObject } from './GameObject'
 
 let krynn = {
     /**
