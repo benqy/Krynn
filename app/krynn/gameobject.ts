@@ -1,3 +1,5 @@
+import { IComponent } from './component'
+
 
 /**
  * 游戏对象必须实现此接口,如:玩家,怪物,子弹,陷阱,墙壁等
@@ -15,16 +17,15 @@ interface IGameObject {
     name: string
     update(): void
     destory(): void
-    draw(): void
+    render(): void
+    component: IComponent[] 
 }
 
 /**
- * 游戏对象,如:玩家,怪物,子弹,陷阱,墙壁等
+ * 游戏对象,如:玩家,怪物,子弹,陷阱,墙壁等游戏内的一切物体
  */
 class GameObject implements IGameObject {
-    constructor(settings = {}) {
-
-    }
+    id: number
 
     name: string
 
@@ -32,11 +33,17 @@ class GameObject implements IGameObject {
 
     active = true
 
+    component: IComponent[] = []
+
+    constructor(settings = {}) {
+
+    }
+
     update() {
 
     }
 
-    draw() {
+    render() {
 
     }
 

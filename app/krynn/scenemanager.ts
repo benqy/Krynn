@@ -10,7 +10,7 @@ export default class SceneManager {
     intervalId: number
 
     /**
-     * 当前游戏实例
+     * 当前场景实例
      */
     scene: IScene
 
@@ -31,16 +31,16 @@ export default class SceneManager {
         this.scene = scene
     }
 
-    frameHandler() {
+    update() {
         if (this.scene) {
-            this.scene.frameHandler()
+            this.scene.run()
             this.tick++
         }
     }
 
     startLoop() {
         this.stopLoop()
-        this.intervalId = setInterval(() => this.frameHandler(), 1000 / this.fps)
+        this.intervalId = setInterval(() => this.update(), 1000 / this.fps)
         this.running = true
     }
 

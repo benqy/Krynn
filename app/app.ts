@@ -27,7 +27,7 @@ let myScene = new CodeWorld()
 
 
 
-myScene.addGameObject(new Worn(100,30))
-myScene.addGameObject(new Worn(70,20))
+// myScene.addGameObject(new Worn(100,30))
+// myScene.addGameObject(new Worn(70,20))
 
 krynn.start(0.5, myScene)

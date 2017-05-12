@@ -2,7 +2,7 @@ import { IGameObject, GameObject } from './GameObject'
 import { krynn } from './index'
 
 interface IScene {
-    frameHandler(): void
+    run(): void
 }
 
 abstract class Scene implements IScene {
@@ -15,21 +15,17 @@ abstract class Scene implements IScene {
     gameObjects: IGameObject[] = []
 
     /**
-     * 带name的GameObject的冗余存储,方便查找
+     * key:name,value:GameObject
      */
     nameGameObjects = {}
 
-    loadSence() {
-
-    }
-
-    frameHandler() {
+    run() {
         this.update()
         this.render()
     }
 
     update() {
-        console.clear()
+        //console.clear()
         // console.log('update entity')
         this.gameObjects.forEach(gameObject => {
             gameObject.active && gameObject.update()
@@ -38,15 +34,14 @@ abstract class Scene implements IScene {
 
     render() {
         this.gameObjects.forEach(gameObject => {
-            gameObject.active && gameObject.draw()
+            gameObject.active && gameObject.render()
         })
         //console.log('', this, krynn.sceneManager.tick)
     }
 
-    addGameObject(gameObject: IGameObject): GameObject {
+    addGameObject(gameObject: IGameObject) {
         this.gameObjects.push(gameObject)
         gameObject.name && (this.nameGameObjects[gameObject.name] = gameObject)
-        return gameObject
     }
 }
 
