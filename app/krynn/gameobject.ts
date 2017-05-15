@@ -22,7 +22,7 @@ interface IGameObject {
 }
 
 /**
- * 游戏对象,如:玩家,怪物,子弹,陷阱,墙壁等游戏内的一切物体
+ * 游戏对象(本质上只是组件的容器,所有行为和功能由组件赋予),如:玩家,怪物,子弹,陷阱,墙壁等游戏内的一切物体
  */
 class GameObject implements IGameObject {
     id: number
